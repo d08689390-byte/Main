@@ -1,8 +1,8 @@
+title: "Denis Kuizinas | Portfolio"
+description: "My coding works and links to my projects"
+theme: jekyll-theme-cayman
+
 # Settings for your temporary github.io domain
 url: "https://d08689390-byte.github.io"
 baseurl: "/Main"
 
-# Basic portfolio identity
-title: "Denis Kuizinas | Portfolio"
-description: "My coding works and project portfolio"
-theme: jekyll-theme-cayman
