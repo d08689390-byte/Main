@@ -59,3 +59,10 @@ title: Denis Kuizinas | Coding Portfolio
 ## 📬 Drop a Line
 
 Have a development project option or an engineering infrastructure task you want to discuss? Let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").
+
+## Sponsor My Projects
+
+Really like my projects? Support them today by donating either to:
+[My Buy me a coffee](https://buymeacoffee.com/deniskuizinasdev)
+[My Github Sponsers](https://github.com/d08689390-byte/sponsors)
+[My Thanks.dev](https://thanks.dev/gh/d08689390-byte)
