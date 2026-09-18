@@ -22,9 +22,9 @@ title: Denis Kuizinas | Coding Portfolio
 <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 3rem;">
   <span class="tech-tag">JavaScript / TypeScript</span>
   <span class="tech-tag">Python</span>
-  <span class="tech-tag">Git / GitHub Actions</span>
-  <span class="tech-tag">HTML5 / SCSS</span>
-  <span class="tech-tag">Docker</span>
+  <span class="tech-tag">HTML5 / CSS / SCSS</span>
+  <span class="tech-tag">React</span>
+  <span class="tech-tag">Node.js</span>
 </div>
 
 ## 💻 Featured Development Works
@@ -37,8 +37,8 @@ title: Denis Kuizinas | Coding Portfolio
     <h3>Bus Timetable for Wap(dumb) phones</h3>
     <p>A Bus Timetable site that can be accessed anywhere in the world!</p>
     <div>
-      <span class="tech-tag" style="background:#fef3c7; color:#d97706;">Jekyll</span>
-      <span class="tech-tag" style="background:#ecfdf5; color:#059669;">YAML</span>
+      <span class="tech-tag" style="background:#fef3c7; color:#d97706;">HTML5</span>
+      <span class="tech-tag" style="background:#ecfdf5; color:#059669;">CSS</span>
     </div>
   </a>
 
@@ -54,5 +54,5 @@ title: Denis Kuizinas | Coding Portfolio
 <br><br>
 
 ## 📬 Drop a Line
-Have a development project option or an engineering infrastructure task you want to discuss? Let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").
+<p style="color: #64748b;">Have a development project option or an engineering infrastructure task you want to discuss? Let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").</p>
 
