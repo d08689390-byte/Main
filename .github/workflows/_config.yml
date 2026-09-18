@@ -4,5 +4,5 @@ theme: jekyll-theme-cayman
 
 # Settings for your temporary github.io domain
 url: "https://d08689390-byte.github.io"
-baseurl: "/Main"
+baseurl: "/main"
 
