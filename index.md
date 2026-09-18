@@ -51,8 +51,11 @@ title: Denis Kuizinas | Coding Portfolio
       <span class="tech-tag" style="background:#fae8ff; color:#c026d3;">Node.js</span>
     </div>
   </a>
-<br><br>
+</div>
+
+<br>
+<br>
 
 ## 📬 Drop a Line
-<p style="color: #64748b;">Have a development project option or an engineering infrastructure task you want to discuss? Let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").</p>
 
+Have a development project option or an engineering infrastructure task you want to discuss? Let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").
