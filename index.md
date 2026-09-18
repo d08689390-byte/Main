@@ -14,13 +14,17 @@ title: Denis Kuizinas | Coding Portfolio
 
 <div class="fade-in-section" style="text-align: center; margin-top: -1rem;">
   
-  <!-- Avatar Section -->
+  <!-- Avatar Section (Automatically grabs your GitHub Profile Pic) -->
   <div class="profile-container">
-    <img src="/avatar.jpg" alt="Denis Kuizinas" class="profile-avatar" onerror="this.onerror=null; this.src='https://unsplash.com';">
+    <img src="https://github.com" alt="Denis Kuizinas" class="profile-avatar">
   </div>
   
-  <p class="hero-text" style="font-size: 1.35rem; max-width: 600px; margin: 0 auto 2.5rem auto; line-height: 1.6;">
-    Hi, I'm <strong>Denis Kuizinas</strong>! Welcome to my portfolio. I build epic, engaging websites that connect people on whatever device they have.
+  <p class="hero-text" style="font-size: 1.35rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
+    Hi, I'm <strong>Denis Kuizinas</strong>! Welcome to my portfolio.
+  </p>
+  
+  <p class="bio-text" style="font-style: italic; max-width: 600px; margin: 0 auto 2.5rem auto; color: var(--text-muted);">
+    "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
   </p>
 </div>
 
@@ -39,7 +43,7 @@ title: Denis Kuizinas | Coding Portfolio
 <div class="project-grid fade-in-section">
 
   <!-- Project Card 1 -->
-  <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card">
+  <a href="https://stusite.me" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Bus Timetable for WAP (dumb) phones</h3>
       <p>A lightweight Bus Timetable engine accessible anywhere globally, built for minimalist mobile viewports.</p>
@@ -51,7 +55,7 @@ title: Denis Kuizinas | Coding Portfolio
   </a>
 
   <!-- Project Card 2 -->
-  <a href="https://source.cloud.stusite.me" target="_blank" rel="noopener" class="project-card">
+  <a href="https://stusite.me" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Source Code Repository Hub</h3>
       <p>Access the structural base directories and deployment source files for my live web platforms.</p>
@@ -66,15 +70,32 @@ title: Denis Kuizinas | Coding Portfolio
 <br>
 <br>
 
-<div class="fade-in-section">
-
 ## 📬 Drop a Line
 
-Have a development project option or an engineering infrastructure task you want to discuss? Let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").
+Have a development project option or an engineering infrastructure task you want to discuss? Securely message me directly using the transmission form below.
 
+<!-- Contact Form Block -->
+<div class="fade-in-section contact-form-wrapper">
+  <form action="https://formspree.io" method="POST" class="portfolio-form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" name="_replyto" id="email" placeholder="name@example.com" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="5" placeholder="Write your message here..." required></textarea>
+    </div>
+    <button type="submit" class="submit-btn">Send Message</button>
+  </form>
+  <p style="margin-top: 1.5rem; font-size: 0.9rem;">Alternatively, let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").</p>
 </div>
 
-<div class="fade-in-section sponsor-box">
+<br>
+<br>
 
 ## ☕ Support & Sponsorship
 
@@ -84,11 +105,11 @@ Really like my coding works? Support my open-source tools today by deploying a d
 *   **[GitHub Sponsors](https://github.com/d08689390-byte/sponsors)** — Direct developer integration
 *   **[Thanks.dev Profile](https://thanks.dev/gh/d08689390-byte)** — Open-source ecosystem support
 
-</div>
+<br>
+<br>
 
-<!-- Interactive UI System Scripts -->
+<!-- Scripts Isolated Separately at the very bottom -->
 <script>
-  // Fade-In On Scroll Action via IntersectionObserver
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -101,7 +122,6 @@ Really like my coding works? Support my open-source tools today by deploying a d
     observer.observe(section);
   });
 
-  // Dark/Light Theme Switching Mechanics
   const themeToggle = document.getElementById('theme-toggle');
   const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
   
