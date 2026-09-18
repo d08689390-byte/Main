@@ -16,7 +16,7 @@ title: Denis Kuizinas | Coding Portfolio
   
   <!-- Avatar Section -->
   <div class="profile-container">
-    <img src="{{ site.baseurl }}/avatar.jpg" alt="Denis Kuizinas" class="profile-avatar" onerror="this.onerror=null; this.src='https://unsplash.com';">
+    <img src="/avatar.jpg" alt="Denis Kuizinas" class="profile-avatar" onerror="this.onerror=null; this.src='https://unsplash.com';">
   </div>
   
   <p class="hero-text" style="font-size: 1.35rem; max-width: 600px; margin: 0 auto 2.5rem auto; line-height: 1.6;">
