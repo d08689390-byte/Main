@@ -16,7 +16,7 @@ title: Denis Kuizinas | Coding Portfolio
   
   <!-- Avatar Section (Automatically grabs your GitHub Profile Pic) -->
   <div class="profile-container">
-    <img src="https://github.com/d08689390-byte/main/avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
+    <img src="https://github.com/d08689390-byte/Main/blob/main/avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
   </div>
   
   <p class="hero-text" style="font-size: 1.35rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
