@@ -1,4 +1,3 @@
-# Workflow for building and deploying a Jekyll site to GitHub Pages
 name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
@@ -28,8 +27,6 @@ jobs:
         with:
           source: ./
           destination: ./_site
-      # Automatically creates a CNAME file inside the build folder if 
-      # a custom domain is configured in your GitHub repository settings.
       - name: Inject Custom Domain if Configured
         run: |
           if [ ! -z "${{ steps.pages.outputs.custom_domain }}" ]; then
