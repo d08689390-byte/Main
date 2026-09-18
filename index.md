@@ -76,7 +76,7 @@ Have a development project option or an engineering infrastructure task you want
 
 <!-- Contact Form Block -->
 <div class="fade-in-section contact-form-wrapper">
-  <form action="https://formspree.io" method="POST" class="portfolio-form">
+  <form action="https://formspree.io/f/myezzbgn" method="POST" class="portfolio-form">
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" name="name" id="name" placeholder="Your Name" required>
