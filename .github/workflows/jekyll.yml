@@ -1,4 +1,4 @@
-name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+name: Deploy Portfolio Engine to GitHub Pages
 
 on:
   push:
@@ -18,21 +18,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Source
         uses: actions/checkout@v4
-      - name: Setup Pages
+      - name: Setup Pages Routing
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
           source: ./
           destination: ./_site
-      - name: Inject Custom Domain if Configured
-        run: |
-          if [ ! -z "${{ steps.pages.outputs.custom_domain }}" ]; then
-            echo "${{ steps.pages.outputs.custom_domain }}" > ./_site/CNAME
-          fi
-      - name: Upload artifact
+      - name: Upload Artifact Package
         uses: actions/upload-pages-artifact@v3
 
   deploy:
