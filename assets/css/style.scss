@@ -57,17 +57,48 @@ a:hover { color: var(--accent); }
 .bio-text { font-style: italic; font-size: 1.6rem; font-weight: bold; line-height: 1.6; }
 .jump-shake-active .bio-text { animation: violentPopOut 1s cubic-bezier(.36,.07,.19,.97) both; }
 
-/* --- 🌗 TOGGLE MODULE --- */
-.theme-bar { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
-.cyber-toggle-btn {
-  background: var(--bg-cards); border: 2px solid var(--border-color); color: var(--text-main);
-  font-family: 'Space Mono', monospace; font-size: 0.85rem; font-weight: 700; padding: 0.6rem 1.4rem;
-  border-radius: 4px; cursor: pointer; box-shadow: 4px 4px 0 var(--border-color);
-  transition: all 0.2s ease;
+/* --- 🌗 FIXED: CYBER INTERACTIVE CIRCLE TOGGLE BUTTON --- */
+.theme-bar { display: flex; justify-content: flex-end; padding-top: 1rem; margin-bottom: 1.5rem; }
+
+.cyber-circle-btn {
+  width: 44px; height: 44px; border-radius: 50%; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--border-color) !important;
+  transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+              background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
-.cyber-toggle-btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--primary); border-color: var(--primary); background: var(--btn-glow); }
-.cyber-toggle-btn:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0 var(--primary); }
-#mode-text { color: var(--accent); }
+
+// ☀️ Light Theme Button Design State Rules
+[data-theme="light"] .cyber-circle-btn {
+  background-color: #ffffff !important;
+  color: #f59e0b !important; // Sun Icon Color
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+[data-theme="light"] .cyber-circle-btn:hover {
+  transform: scale(1.1) rotate(20deg);
+  background-color: #f8fafc !important;
+}
+
+// 🌙 Dark Theme Button Design State Rules
+[data-theme="dark"] .cyber-circle-btn {
+  background-color: #0b0f19 !important;
+  color: #a855f7 !important; // Moon Icon Color
+  border-color: #1e293b !important;
+  box-shadow: 0 4px 12px rgba(168, 85, 247, 0.15);
+}
+[data-theme="dark"] .cyber-circle-btn:hover {
+  transform: scale(1.1) rotate(-20deg);
+  background-color: #111827 !important;
+  border-color: var(--primary) !important;
+}
+
+// 🔄 Icon Visibility Shifts Loop Configs
+[data-theme="light"] .sun-icon { display: block; }
+[data-theme="light"] .moon-icon { display: none; }
+[data-theme="dark"] .sun-icon { display: none; }
+[data-theme="dark"] .moon-icon { display: block; }
+
 
 /* --- 🖼️ PROFILE PICTURE & LIVE BEACON --- */
 .profile-frame { position: relative; display: inline-block; margin-bottom: 1rem; }
