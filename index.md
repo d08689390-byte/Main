@@ -3,6 +3,26 @@ layout: default
 title: Denis Kuizinas | Portfolio
 ---
 
+<!-- 🛠️ CRUCIAL INJECTIONS: Adds your custom font and links your style.css file -->
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+
+<!-- FULL-SCREEN TERMINAL PRELOADER -->
+<div id="terminal-loader">
+  <div class="loader-content">
+    <div class="console-log-box">
+      <span id="typing-text"></span><span class="typing-cursor">_</span>
+    </div>
+    <div id="jumper-quote" class="bio-text-wrapper">
+      <p class="bio-text">
+        "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
+      </p>
+    </div>
+  </div>
+</div>
+
 <!-- FULL-SCREEN TERMINAL PRELOADER -->
 <div id="terminal-loader">
   <div class="loader-content">
