@@ -3,7 +3,12 @@ layout: default
 title: Denis Kuizinas | Cyber-Hacker Portfolio
 ---
 
-<!-- 🌌 FULL-SCREEN PRELOADER & INTRO SYSTEM -->
+<!-- 🌐 CDN Font Injections for Space Mono -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com" rel="stylesheet">
+
+<!-- 🌌 FULL-SCREEN TERMINAL PRELOADER & SEAMLESS TRANSITION -->
 <div id="terminal-loader">
   <div class="loader-content">
     <!-- Typing Console Output -->
@@ -23,16 +28,15 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
 <!-- 📺 Ambient CRT Screen Scanlines -->
 <div class="scanlines"></div>
 
-<!-- 🌓 Restructured Theme Toggle Container -->
+<!-- 🌓 Restructured Cyber Theme Controller Bar -->
 <div class="theme-bar">
-  <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
-    <span class="sun-icon">☀️ LIGHT</span>
-    <span class="moon-icon">🌙 DARK</span>
+  <button id="theme-toggle" class="cyber-toggle-btn" aria-label="Toggle system interface matrix">
+    <span class="mode-indicator">[ SYS_MODE: <span id="mode-text">DARK</span> ]</span>
   </button>
 </div>
 
 
-<div style="text-align: center; margin-top: 1rem; position: relative; z-index: 2;">
+<div style="text-align: center; margin-top: 1.5rem; position: relative; z-index: 2;">
   <div class="profile-container glitch-hover">
     <img src="avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
   </div>
@@ -125,21 +129,22 @@ Really like my coding works? Support my open-source tools today by deploying a d
   let charIndex = 0;
 
   function runSequence() {
-    // Step 1: Type out the hack command
+    // Step 1: Type out the hack command line code
     if (charIndex < introString.length) {
       typingTarget.textContent += introString.charAt(charIndex);
       charIndex++;
       setTimeout(runSequence, 35); 
     } else {
-      // Step 2: Show and violently shake the quote
+      // Step 2: Show and shake the quote inside loader canvas
       setTimeout(() => {
         quoteContainer.classList.add("visible-now");
         quoteContainer.classList.add("jump-shake-active");
         
-        // Step 3: Fade out the preloader curtain to reveal the portfolio site
+        // Step 3: Dissolve preloader screen and RESTORE SCROLL PHYSICS
         setTimeout(() => {
           loader.classList.add("fade-out-loader");
-          // Remove from layout after fade complete to restore standard viewport scrolling
+          document.body.classList.remove("loading-locked"); // Fixes the scroll lock issue!
+          
           setTimeout(() => { loader.style.display = "none"; }, 500);
         }, 1600);
         
@@ -147,21 +152,26 @@ Really like my coding works? Support my open-source tools today by deploying a d
     }
   }
 
-  // Prevent scroll interaction until introduction cycle yields
+  // Bind lock state on initial loading sequence initialization
   window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add("loading-locked");
     setTimeout(runSequence, 300);
   });
 
-  // Dark/Light Theme Switching Mechanics
+  // Dark/Light Toggle System (Pure stark matrix vs clean layout sheets)
   const themeToggle = document.getElementById('theme-toggle');
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark'; // Hacker dark mode base
+  const modeText = document.getElementById('mode-text');
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+  
   document.documentElement.setAttribute('data-theme', savedTheme);
+  modeText.textContent = savedTheme.toUpperCase();
 
   themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
     document.documentElement.setAttribute('data-theme', newTheme);
+    modeText.textContent = newTheme.toUpperCase();
     localStorage.setItem('portfolio-theme', newTheme);
   });
 </script>
