@@ -133,29 +133,35 @@ title: Denis Kuizinas | Portfolio
   </div>
 
 </div>
-
 <script>
   // ⚡ 1. The Orchestrator Script Sequence
   const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
-  const typingTarget = document.getElementById("typing-text");
-  const loader = document.getElementById("terminal-loader");
-  const quoteContainer = document.getElementById("jumper-quote");
   let charIndex = 0;
 
   function runSequence() {
+    const typingTarget = document.getElementById("typing-text");
+    const loader = document.getElementById("terminal-loader");
+    const quoteContainer = document.getElementById("jumper-quote");
+
+    if (!typingTarget) return; // Prevent crashes if element isn't found
+
     if (charIndex < introString.length) {
       typingTarget.textContent += introString.charAt(charIndex);
       charIndex++;
       setTimeout(runSequence, 35); 
     } else {
       setTimeout(() => {
-        quoteContainer.classList.add("visible-now");
-        quoteContainer.classList.add("jump-shake-active");
+        if (quoteContainer) {
+          quoteContainer.classList.add("visible-now");
+          quoteContainer.classList.add("jump-shake-active");
+        }
         
         setTimeout(() => {
-          loader.classList.add("fade-out-loader");
+          if (loader) loader.classList.add("fade-out-loader");
           document.body.classList.remove("loading-locked"); 
-          setTimeout(() => { loader.style.display = "none"; }, 500);
+          setTimeout(() => { 
+            if (loader) loader.style.display = "none"; 
+          }, 500);
         }, 2100);
       }, 500);
     }
@@ -172,33 +178,41 @@ title: Denis Kuizinas | Portfolio
     });
 
     // Hunt down and remove the footer text ("This site is open source.")
-    const allParagraphs = document.querySelectorAll('p, footer, div');
+    const allParagraphs = document.querySelectorAll('p, footer, div, span');
     allParagraphs.forEach(el => {
-      if (el.textContent.includes('This site is open source')) {
+      if (el.textContent.includes('This site is open source') || el.textContent.includes('Improve this page')) {
         el.remove();
       }
     });
   }
 
-  // ⚡ 3. Safe Execution Trigger (Triggers everything in the perfect mathematical order)
+  // ⚡ 3. Safe Execution Trigger (Guarantees everything runs in the perfect order AFTER the page exists)
   window.addEventListener('DOMContentLoaded', () => {
-    purgeDefaultElements(); // Clear out the header/footer buttons instantly
-    document.body.classList.add("loading-locked"); // Hold screen
-    setTimeout(runSequence, 300); // Kick off typing sequence
-  });
+    // Run the header/footer cleaner immediately
+    purgeDefaultElements(); 
 
-  // 🌓 4. Theme Script Engine
-  const themeToggle = document.getElementById('theme-toggle');
-  const modeText = document.getElementById('mode-text');
-  
-  let currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', currentTheme);
-  modeText.textContent = currentTheme === 'dark' ? 'LIGHT' : 'DARK';
+    // Handle Theme Setup SAFELY inside the listener so modeText is never null
+    const themeToggle = document.getElementById('theme-toggle');
+    const modeText = document.getElementById('mode-text');
+    
+    let currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    
+    if (modeText) {
+      modeText.textContent = currentTheme === 'dark' ? 'LIGHT' : 'DARK';
+    }
 
-  themeToggle.addEventListener('click', () => {
-    const updatedTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    document.documentElement.setAttribute('data-theme', updatedTheme);
-    localStorage.setItem('portfolio-theme', updatedTheme);
-    modeText.textContent = updatedTheme === 'dark' ? 'LIGHT' : 'DARK';
+    if (themeToggle && modeText) {
+      themeToggle.addEventListener('click', () => {
+        const updatedTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', updatedTheme);
+        localStorage.setItem('portfolio-theme', updatedTheme);
+        modeText.textContent = updatedTheme === 'dark' ? 'LIGHT' : 'DARK';
+      });
+    }
+
+    // Lock body scroll and kick off typing sequence
+    document.body.classList.add("loading-locked"); 
+    setTimeout(runSequence, 300); 
   });
 </script>
