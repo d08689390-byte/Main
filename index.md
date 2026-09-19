@@ -1,7 +1,10 @@
 ---
 layout: default
-title: Denis Kuizinas | Coding Portfolio
+title: Denis Kuizinas | Cyber-Hacker Portfolio
 ---
+
+<!-- Cyber Scanner Overlay Effect -->
+<div class="scanlines"></div>
 
 <!-- Theme Switcher Button -->
 <div class="theme-toggle-container">
@@ -12,10 +15,10 @@ title: Denis Kuizinas | Coding Portfolio
 </div>
 
 
-<div style="text-align: center; margin-top: -1rem;">
+<div style="text-align: center; margin-top: -1rem; position: relative; z-index: 2;">
   
-  <!-- Avatar Section (Now with dedicated entrance animations) -->
-  <div class="profile-container hero-avatar-animate">
+  <!-- Avatar Section (With hacker terminal glitch hover effect) -->
+  <div class="profile-container hero-avatar-animate glitch-hover">
     <img src="avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
   </div>
   
@@ -24,12 +27,15 @@ title: Denis Kuizinas | Coding Portfolio
     <span id="typing-text"></span><span class="typing-cursor">_</span>
   </div>
   
-  <p class="bio-text fade-in-section" style="font-style: italic; max-width: 600px; margin: 1.5rem auto 2.5rem auto; color: var(--text-muted);">
-    "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
-  </p>
+  <!-- The Jumping/Shaking White-Hat Quote Component -->
+  <div id="jumper-quote" class="bio-text-wrapper">
+    <p class="bio-text">
+      "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
+    </p>
+  </div>
 </div>
 
-## 🛠️ Tech Stack & Proficiencies
+## 🛠️ System Stack & Core Proficiencies
 <div class="tech-stack-container fade-in-section">
   <span class="tech-tag">JavaScript / TypeScript</span>
   <span class="tech-tag">Python</span>
@@ -38,13 +44,14 @@ title: Denis Kuizinas | Coding Portfolio
   <span class="tech-tag">Node.js</span>
 </div>
 
-## 💻 Featured Development Works
-<p class="fade-in-section sub-text">Click on any project block below to browse the production builds or review the repository files.</p>
+## 💻 Decrypted Repositories & Works
+<p class="fade-in-section sub-text">Select a secure terminal data node block below to view operational source code files.</p>
 
 <div class="project-grid fade-in-section">
 
-  <!-- Project Card 1 -->
-  <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card">
+  <!-- Cyber Project Card 1 -->
+  <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card cyber-node">
+    <div class="card-glitch-overlay"></div>
     <div class="card-content">
       <h3>Bus Timetable for WAP (dumb) phones</h3>
       <p>A lightweight Bus Timetable engine accessible anywhere globally, built for minimalist mobile viewports.</p>
@@ -55,8 +62,9 @@ title: Denis Kuizinas | Coding Portfolio
     </div>
   </a>
 
-  <!-- Project Card 2 -->
-  <a href="https://cloud.stusite.me/source" target="_blank" rel="noopener" class="project-card">
+  <!-- Cyber Project Card 2 -->
+  <a href="https://cloud.stusite.me/source" target="_blank" rel="noopener" class="project-card cyber-node">
+    <div class="card-glitch-overlay"></div>
     <div class="card-content">
       <h3>Source Code Repository Hub</h3>
       <p>Access the structural base directories and deployment source files for my live web platforms.</p>
@@ -71,7 +79,7 @@ title: Denis Kuizinas | Coding Portfolio
 <br>
 <br>
 
-## 📬 Drop a Line
+## 📬 Open Secure Channel
 
 Have a development project option or an engineering infrastructure task you want to discuss? Securely message me directly using the transmission form below.
 
@@ -79,18 +87,18 @@ Have a development project option or an engineering infrastructure task you want
 <div class="fade-in-section contact-form-wrapper">
   <form action="https://formspree.io/f/myezzbgn" method="POST" class="portfolio-form">
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">User Identity</label>
       <input type="text" name="name" id="name" placeholder="Your Name" required>
     </div>
     <div class="form-group">
-      <label for="email">Email Address</label>
+      <label for="email">Return Channel (Email)</label>
       <input type="email" name="_replyto" id="email" placeholder="name@example.com" required>
     </div>
     <div class="form-group">
-      <label for="message">Message</label>
+      <label for="message">Payload Transmission (Message)</label>
       <textarea name="message" id="message" rows="5" placeholder="Write your message here..." required></textarea>
     </div>
-    <button type="submit" class="submit-btn">Send Message</button>
+    <button type="submit" class="submit-btn">Transmit Payload</button>
   </form>
   <p style="margin-top: 1.5rem; font-size: 0.9rem;">Alternatively, let's connect on [GitHub](https://github.com "GitHub Profile").</p>
 </div>
@@ -98,7 +106,7 @@ Have a development project option or an engineering infrastructure task you want
 <br>
 <br>
 
-## ☕ Support & Sponsorship
+## ☕ Fuel Infrastructure / Support
 
 Really like my coding works? Support my open-source tools today by deploying a donation platform link:
 
@@ -109,10 +117,10 @@ Really like my coding works? Support my open-source tools today by deploying a d
 <br>
 <br>
 
-<!-- Scripts -->
+<!-- Core Scripts Section -->
 <script>
   // Terminal Typing Intro Effect
-  const introString = "Hi, I'm Denis Kuizinas! Welcome to my portfolio.";
+  const introString = "DenisKuizinas@portfolio:~# access_granted --identity=denis";
   const typingTarget = document.getElementById("typing-text");
   let charIndex = 0;
 
@@ -120,16 +128,26 @@ Really like my coding works? Support my open-source tools today by deploying a d
     if (charIndex < introString.length) {
       typingTarget.textContent += introString.charAt(charIndex);
       charIndex++;
-      setTimeout(typeIntro, 50); // Speed of typing in ms
+      setTimeout(typeIntro, 40); 
+    } else {
+      // Trigger Quote Shake and Jump right after typing wraps up
+      setTimeout(() => {
+        const quoteEl = document.getElementById('jumper-quote');
+        quoteEl.classList.add('jump-shake-active');
+        
+        // Return back to standard formatting smoothly after animation loops complete
+        setTimeout(() => {
+          quoteEl.classList.remove('jump-shake-active');
+        }, 1200);
+      }, 500);
     }
   }
 
-  // Trigger typing once DOM elements are ready
   window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeIntro, 400); // Slight buffer delay before starting
+    setTimeout(typeIntro, 400); 
   });
 
-  // Scroll Reveal Animations
+  // Intersection Scroll System
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -142,9 +160,9 @@ Really like my coding works? Support my open-source tools today by deploying a d
     observer.observe(section);
   });
 
-  // Theme Toggler Switch Logic
+  // Dark/Light Theme Switching Configurations (Cyber Dark vs Crisp Pure White)
   const themeToggle = document.getElementById('theme-toggle');
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark'; // Defaulting to hacker dark mode
   
   document.documentElement.setAttribute('data-theme', savedTheme);
 
