@@ -3,12 +3,20 @@ layout: default
 title: Denis Kuizinas | Cyber-Hacker Portfolio
 ---
 
+<!-- 🌐 CDN Font Injections for Space Mono -->
+<link rel="preconnect" href="https://googleapis.com">
+<link rel="preconnect" href="https://gstatic.com" crossorigin>
+<link href="https://googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
 <!-- 🌌 FULL-SCREEN TERMINAL PRELOADER & SEAMLESS TRANSITION -->
 <div id="terminal-loader">
   <div class="loader-content">
+    <!-- Typing Console Output -->
     <div class="console-log-box">
       <span id="typing-text"></span><span class="typing-cursor">_</span>
     </div>
+    
+    <!-- The Jump & Shake Target Quote -->
     <div id="jumper-quote" class="bio-text-wrapper">
       <p class="bio-text">
         "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
@@ -17,18 +25,22 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   </div>
 </div>
 
+<!-- 📺 Ambient CRT Screen Scanlines -->
 <div class="scanlines"></div>
 
+<!-- 🌓 Restructured Cyber Theme Controller Bar -->
 <div class="theme-bar">
   <button id="theme-toggle" class="cyber-toggle-btn" aria-label="Toggle system interface matrix">
-    <span class="mode-indicator">[ SYS_MODE: <span id="mode-text">DARK</span> ]</span>
+    <span class="mode-indicator">[ SYS_MODE: <span id="mode-text">LIGHT</span> ]</span>
   </button>
 </div>
+
 
 <div style="text-align: center; margin-top: 1.5rem; position: relative; z-index: 2;">
   <div class="profile-container glitch-hover">
     <img src="avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
   </div>
+  
   <h1 class="glitch-title">Denis Kuizinas</h1>
   <p class="hero-subtitle">Building epic, engaging web applications that connect people across any device.</p>
 </div>
@@ -46,6 +58,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
 <p class="sub-text">Select a secure terminal data node block below to view operational source code files.</p>
 
 <div class="project-grid">
+  <!-- Project Card 1 -->
   <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Bus Timetable for WAP (dumb) phones</h3>
@@ -57,6 +70,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
     </div>
   </a>
 
+  <!-- Project Card 2 -->
   <a href="https://cloud.stusite.me/source" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Source Code Repository Hub</h3>
@@ -107,6 +121,7 @@ Really like my coding works? Support my open-source tools today by deploying a d
 <br>
 
 <script>
+  // ⚡ The Orchestrator Script Sequence
   const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
   const typingTarget = document.getElementById("typing-text");
   const loader = document.getElementById("terminal-loader");
@@ -114,19 +129,21 @@ Really like my coding works? Support my open-source tools today by deploying a d
   let charIndex = 0;
 
   function runSequence() {
+    // Step 1: Type out the hack command line code
     if (charIndex < introString.length) {
       typingTarget.textContent += introString.charAt(charIndex);
       charIndex++;
       setTimeout(runSequence, 35); 
     } else {
+      // Step 2: Show and shake the quote inside loader canvas
       setTimeout(() => {
         quoteContainer.classList.add("visible-now");
         quoteContainer.classList.add("jump-shake-active");
         
+        // Step 3: Dissolve preloader screen and RESTORE SCROLL PHYSICS
         setTimeout(() => {
           loader.classList.add("fade-out-loader");
-          // Completely unbind layout fixed locks to free up standard scroll momentum
-          document.body.classList.remove("loading-locked"); 
+          document.body.classList.remove("loading-locked");
           
           setTimeout(() => { loader.style.display = "none"; }, 500);
         }, 1600);
@@ -135,24 +152,30 @@ Really like my coding works? Support my open-source tools today by deploying a d
     }
   }
 
+  // Bind lock state on initial loading sequence initialization
   window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add("loading-locked");
     setTimeout(runSequence, 300);
   });
 
+  // Dark/Light Toggle System Configuration
   const themeToggle = document.getElementById('theme-toggle');
   const modeText = document.getElementById('mode-text');
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   
+  // Base state detection setup logic
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  modeText.textContent = savedTheme.toUpperCase();
+  
+  // The toggle button shows the OPPOSITE mode text options so users understand action targets
+  modeText.textContent = savedTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
-    modeText.textContent = newTheme.toUpperCase();
+    // Update button text to display the next available toggle state option option
+    modeText.textContent = newTheme === 'dark' ? 'LIGHT' : 'DARK';
     localStorage.setItem('portfolio-theme', newTheme);
   });
 </script>
