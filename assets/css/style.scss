@@ -157,3 +157,18 @@ a:hover { color: var(--accent); }
 .gh-sponsors:hover { border-color: #db2777; color: #db2777; box-shadow: 0 4px 12px rgba(219, 39, 119, 0.15); }
 .bmac:hover { border-color: #ffdd00; color: #ffdd00; box-shadow: 0 4px 12px rgba(255, 221, 0, 0.2); }
 .thanks-dev:hover { border-color: #22c55e; color: #22c55e; box-shadow: 0 4px 12px rgba(34, 197, 94, 0.2); }
+
+/* ❌ REMOVE DEFAULT GITHUB REPOSITORY BANNERS & FOOTER TEXT CHUNKS */
+.site-header,
+.site-footer,
+.site-button,
+a[href*="://github.com"],
+.project-tagline,
+footer.site-footer {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
