@@ -1,12 +1,18 @@
 ---
 ---
+// ⚡ IMPORT GOOGLE FONTS INJECTIONS BEFORE THE THEME LOADS
+@import url('https://googleapis.com');
+
+// 💎 OVERRIDE CAYMAN'S HARDCODED CORE FONT VARIABLES
+$helvetica: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 @import "{{ site.theme }}";
 
 // Cyber Hacker Style Parameters Configs
 :root {
   --primary: #2563eb;       
   --accent: #7c3aed;        
-  --bg-page: #ffffff;       /* CRISP PURE WHITE */
+  --bg-page: #ffffff;       /* SOLID PURE WHITE BACKGROUND */
   --bg-cards: #f8fafc;      
   --text-main: #0f172a;     
   --text-muted: #64748b;    
@@ -22,7 +28,7 @@
   --accent: #d946ef;        
   --bg-page: #05070f;       /* DARK HACKER VOID */
   --bg-cards: #0c0f1d;      
-  --text-main: #39ff14;     /* SPACE TERMINAL RETRO GREEN */
+  --text-main: #39ff14;     /* RETRO GREEN ENGINE TEXT */
   --text-muted: #88a090;    
   --border-color: #1e293b;  
   --tag-bg: #111c24;        
@@ -31,19 +37,21 @@
   --scan-opacity: 0.05;
 }
 
-// 💎 Force Universal Space Mono Application Overrides
+// 🌐 Global Content Structural Font Strategy
 body {
   background-color: var(--bg-page) !important;
   color: var(--text-main) !important;
-  font-family: 'Space Mono', 'Courier New', monospace !important;
+  font-family: "Roboto", "Helvetica", Arial, sans-serif !important;
   transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s ease;
   overflow-x: hidden;
 }
 
-// Fixed Scroll Physics State Configuration
+// Fully unlocks body height rules once preloader passes
 body.loading-locked { 
   overflow: hidden !important; 
   height: 100vh !important;
+  position: fixed !important;
+  width: 100% !important;
 }
 
 .main-content {
@@ -51,20 +59,17 @@ body.loading-locked {
   color: var(--text-main) !important;
   max-width: 54rem !important;
   padding: 2rem 1rem !important;
-  font-family: 'Space Mono', 'Courier New', monospace !important;
-}
-
-h1, h2, h3, h4, h5, h6, p, label, input, textarea, span, a, button { 
-  font-family: 'Space Mono', 'Courier New', monospace !important;
+  font-family: "Roboto", "Helvetica", Arial, sans-serif !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main) !important; 
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  font-family: "Roboto", "Helvetica", Arial, sans-serif !important;
 }
 
-/* --- 🚪 FULL SCREEN LOADER WRAPPER LAYER --- */
+/* --- 🚪 PRE-BOOT TERMINAL PRELOADER (FORCES TERMINAL MONOSPACE) --- */
 #terminal-loader {
   position: fixed;
   top: 0; left: 0; width: 100vw; height: 100vh;
@@ -75,6 +80,12 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   transition: opacity 0.5s ease-out;
+  /* 🖥️ Force strict Nerd-Font terminal environment styling inside loader viewports: */
+  font-family: 'Space Mono', 'Courier New', monospace !important;
+}
+
+#terminal-loader * {
+  font-family: 'Space Mono', 'Courier New', monospace !important;
 }
 
 .fade-out-loader { opacity: 0; pointer-events: none; }
@@ -91,12 +102,11 @@ h1, h2, h3, h4, h5, h6 {
 /* --- 💥 JUMP OUT & INTENSE GLITCH SHAKE TIMING RULES --- */
 @keyframes violentPopOut {
   0% { transform: scale(0.1) translate(0, 0); filter: blur(10px); text-shadow: none; }
-  15% { transform: scale(1.4) translate(-6px, -10px); color: #d946ef; text-shadow: 4px 4px 0 #00ffcc; filter: blur(0px); }
-  30% { transform: scale(1.3) translate(6px, 6px); text-shadow: -4px -4px 0 #00ffcc; }
-  45% { transform: scale(1.35) translate(-6px, 6px); }
-  60% { transform: scale(1.3) translate(6px, -6px); }
-  75% { transform: scale(1.32) translate(-3px, -8px); }
-  100% { transform: scale(1.05) translate(0, 0); filter: blur(0); text-shadow: none; }
+  15% { transform: scale(1.3) translate(-6px, -10px); color: #d946ef; text-shadow: 4px 4px 0 #00ffcc; filter: blur(0px); }
+  30% { transform: scale(1.2) translate(6px, 6px); text-shadow: -4px -4px 0 #00ffcc; }
+  45% { transform: scale(1.25) translate(-6px, 6px); }
+  60% { transform: scale(1.2) translate(6px, -6px); }
+  100% { transform: scale(1) translate(0, 0); filter: blur(0); text-shadow: none; }
 }
 
 .bio-text-wrapper { opacity: 0; transform: scale(0.5); transition: opacity 0.3s ease; }
@@ -113,12 +123,13 @@ h1, h2, h3, h4, h5, h6 {
   animation: violentPopOut 1s cubic-bezier(.36,.07,.19,.97) both;
 }
 
-/* --- 🌗 TERMINAL INTERACTIVE BADGE SWITCH --- */
+/* --- 🌗 TERMINAL DOCK TOGGLE BUTTON ALIGNMENT --- */
 .theme-bar { display: flex; justify-content: flex-end; margin-bottom: 1.5rem; }
 .cyber-toggle-btn {
   background: var(--bg-cards) !important;
   border: 2px solid var(--border-color) !important;
   color: var(--text-main) !important;
+  font-family: 'Space Mono', monospace !important; // Toggle uses terminal formatting look
   font-weight: bold;
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
@@ -135,9 +146,9 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0px 0px 0 var(--primary);
   transform: translate(2px, 2px);
 }
-#mode-text { color: var(--accent); }
+#mode-text { color: var(--accent) !important; font-weight: bold; }
 
-/* --- 🖼️ User Node Image Avatar Configs --- */
+/* --- 🖼️ Profile Avatar Container Nodes --- */
 .profile-container { display: inline-block; margin-bottom: 1.5rem; }
 .profile-avatar {
   width: 140px; height: 140px; border-radius: 50%;
@@ -145,14 +156,14 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 .glitch-hover:hover .profile-avatar {
-  transform: scale(1.08) rotate(3deg);
+  transform: scale(1.05) rotate(3deg);
   border-color: var(--accent);
 }
 
 .glitch-title { font-size: 2.4rem; font-weight: bold; margin: 0.5rem 0; color: var(--text-main); }
 .hero-subtitle { color: var(--text-muted); font-size: 1.05rem; max-width: 600px; margin: 0 auto 2.5rem auto; line-height: 1.5; }
 
-/* --- 💻 Grid Base Dashboard --- */
+/* --- 💻 Project Architecture System --- */
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
 .project-card {
   background: var(--bg-cards) !important;
@@ -170,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--accent) !important;
 }
 
-/* --- 📺 Ambient Screen Filter Layout --- */
+/* --- 📺 Ambient Filter Layer --- */
 .scanlines {
   position: fixed;
   top: 0; left: 0; width: 100%; height: 100%;
