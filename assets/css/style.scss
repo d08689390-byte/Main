@@ -17,10 +17,10 @@
 }
 
 [data-theme="dark"] {
-  --primary: #22d3ee; /* Glowing Neon Cyan */
-  --accent: #c084fc;  /* Bright Purple */
-  --bg-page: #0b0f19; /* Deep Tech Black */
-  --bg-cards: #111827; /* Dark Grey Cards */
+  --primary: #22d3ee; 
+  --accent: #c084fc;  
+  --bg-page: #0b0f19; 
+  --bg-cards: #111827; 
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --border-color: #1f2937;
@@ -45,7 +45,69 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-main) !important;
 }
 
-/* Animations Elements */
+/* --- 🎬 NEW: Keyframe Animation Infrastructure --- */
+
+// Smooth entrance pop-in for the avatar photo
+@keyframes avatarEntrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.6) rotate(-10deg);
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px);
+  }
+}
+
+// Gentle ambient glowing loop for the avatar edge
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(168, 85, 247, 0.6); border-color: var(--accent); }
+  100% { box-shadow: 0 0 15px rgba(6, 182, 212, 0.3); }
+}
+
+// Terminal style terminal blinking cursor
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-avatar-animate {
+  animation: avatarEntrance 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.profile-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid var(--primary);
+  object-fit: cover;
+  animation: neonPulse 4s infinite ease-in-out;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.profile-avatar:hover {
+  transform: scale(1.1) rotate(3deg);
+}
+
+// Typing Layout Area
+.intro-typing-container {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.45rem;
+  font-weight: bold;
+  color: var(--text-main);
+  margin-top: 1.5rem;
+  min-height: 40px; /* Prevents layout shifting during typing text load */
+}
+
+.typing-cursor {
+  color: var(--primary);
+  font-weight: bold;
+  animation: blink 0.8s infinite;
+}
+
+/* Scroll Animations Elements */
 .fade-in-section {
   opacity: 0;
   transform: translateY(20px);
@@ -74,16 +136,6 @@ h1, h2, h3, h4, h5, h6 {
 [data-theme="dark"] {
   .sun-icon { display: none; }
   .moon-icon { display: block; }
-}
-
-/* Avatar Border Profile Photo Glow */
-.profile-avatar {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  border: 4px solid var(--primary);
-  box-shadow: 0 0 20px rgba(6, 182, 212, 0.2);
-  object-fit: cover;
 }
 
 /* Grid Cards */
@@ -116,7 +168,7 @@ h1, h2, h3, h4, h5, h6 {
 .react-tag { background: rgba(8, 145, 178, 0.15); color: #0891b2; }
 .node-tag { background: rgba(22, 163, 74, 0.15); color: #16a34a; }
 
-/* 📬 Modern Responsive Contact Form Elements */
+/* Contact Form Elements */
 .contact-form-wrapper {
   background: var(--bg-cards);
   border: 1px solid var(--border-color);
@@ -125,22 +177,9 @@ h1, h2, h3, h4, h5, h6 {
   margin: 2rem 0;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
-.portfolio-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: left;
-}
-.form-group label {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--text-main);
-}
+.portfolio-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; text-align: left; }
+.form-group label { font-weight: 600; font-size: 0.95rem; color: var(--text-main); }
 .form-group input, .form-group textarea {
   background: var(--input-bg);
   color: var(--text-main);
@@ -167,7 +206,4 @@ h1, h2, h3, h4, h5, h6 {
   cursor: pointer;
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
-.submit-btn:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-}
+.submit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
