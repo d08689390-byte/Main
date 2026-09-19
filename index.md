@@ -138,12 +138,13 @@ Really like my coding works? Support my open-source tools today by deploying a d
         quoteContainer.classList.add("visible-now");
         quoteContainer.classList.add("jump-shake-active");
         
+        // ⏱️ EXTENDED: Changed delay from 1600ms to 2100ms (+0.5 seconds hold time)
         setTimeout(() => {
           loader.classList.add("fade-out-loader");
           document.body.classList.remove("loading-locked");
           
           setTimeout(() => { loader.style.display = "none"; }, 500);
-        }, 1600);
+        }, 2100);
         
       }, 500);
     }
@@ -162,7 +163,7 @@ Really like my coding works? Support my open-source tools today by deploying a d
   const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
   
-  // 🛠️ FIX: Corrects button presentation text so it tells the user what mode they can click INTO
+  // Corrects button presentation text so it tells the user what mode they can click INTO
   modeText.textContent = savedTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
