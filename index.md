@@ -43,7 +43,7 @@ title: Denis Kuizinas | Coding Portfolio
 <div class="project-grid fade-in-section">
 
   <!-- Project Card 1 -->
-  <a href="https://stusite.me" target="_blank" rel="noopener" class="project-card">
+  <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Bus Timetable for WAP (dumb) phones</h3>
       <p>A lightweight Bus Timetable engine accessible anywhere globally, built for minimalist mobile viewports.</p>
@@ -55,7 +55,7 @@ title: Denis Kuizinas | Coding Portfolio
   </a>
 
   <!-- Project Card 2 -->
-  <a href="https://stusite.me" target="_blank" rel="noopener" class="project-card">
+  <a href="https://cloud.stusite.me/source" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Source Code Repository Hub</h3>
       <p>Access the structural base directories and deployment source files for my live web platforms.</p>
