@@ -12,18 +12,19 @@ title: Denis Kuizinas | Coding Portfolio
 </div>
 
 
-<div class="fade-in-section" style="text-align: center; margin-top: -1rem;">
+<div style="text-align: center; margin-top: -1rem;">
   
-  <!-- Avatar Section (Automatically grabs your GitHub Profile Pic) -->
-  <div class="profile-container">
+  <!-- Avatar Section (Now with dedicated entrance animations) -->
+  <div class="profile-container hero-avatar-animate">
     <img src="avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
   </div>
   
-  <p class="hero-text" style="font-size: 1.35rem; max-width: 600px; margin: 0 auto 1.5rem auto; line-height: 1.6;">
-    Hi, I'm <strong>Denis Kuizinas</strong>! Welcome to my portfolio.
-  </p>
+  <!-- Typing Intro Wrapper -->
+  <div class="intro-typing-container">
+    <span id="typing-text"></span><span class="typing-cursor">_</span>
+  </div>
   
-  <p class="bio-text" style="font-style: italic; max-width: 600px; margin: 0 auto 2.5rem auto; color: var(--text-muted);">
+  <p class="bio-text fade-in-section" style="font-style: italic; max-width: 600px; margin: 1.5rem auto 2.5rem auto; color: var(--text-muted);">
     "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
   </p>
 </div>
@@ -91,7 +92,7 @@ Have a development project option or an engineering infrastructure task you want
     </div>
     <button type="submit" class="submit-btn">Send Message</button>
   </form>
-  <p style="margin-top: 1.5rem; font-size: 0.9rem;">Alternatively, let's connect on [GitHub](https://github.com/d08689390-byte "GitHub Profile").</p>
+  <p style="margin-top: 1.5rem; font-size: 0.9rem;">Alternatively, let's connect on [GitHub](https://github.com "GitHub Profile").</p>
 </div>
 
 <br>
@@ -102,14 +103,33 @@ Have a development project option or an engineering infrastructure task you want
 Really like my coding works? Support my open-source tools today by deploying a donation platform link:
 
 *   **[Buy Me A Coffee](https://buymeacoffee.com/deniskuizinasdev)** — Quick direct support
-*   **[GitHub Sponsors](https://github.com/d08689390-byte/sponsors)** — Direct developer integration
+*   **[GitHub Sponsors](https://github.com/sponsors/d08689390-byte)** — Direct developer integration
 *   **[Thanks.dev Profile](https://thanks.dev/gh/d08689390-byte)** — Open-source ecosystem support
 
 <br>
 <br>
 
-<!-- Scripts Isolated Separately at the very bottom -->
+<!-- Scripts -->
 <script>
+  // Terminal Typing Intro Effect
+  const introString = "Hi, I'm Denis Kuizinas! Welcome to my portfolio.";
+  const typingTarget = document.getElementById("typing-text");
+  let charIndex = 0;
+
+  function typeIntro() {
+    if (charIndex < introString.length) {
+      typingTarget.textContent += introString.charAt(charIndex);
+      charIndex++;
+      setTimeout(typeIntro, 50); // Speed of typing in ms
+    }
+  }
+
+  // Trigger typing once DOM elements are ready
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(typeIntro, 400); // Slight buffer delay before starting
+  });
+
+  // Scroll Reveal Animations
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -122,6 +142,7 @@ Really like my coding works? Support my open-source tools today by deploying a d
     observer.observe(section);
   });
 
+  // Theme Toggler Switch Logic
   const themeToggle = document.getElementById('theme-toggle');
   const savedTheme = localStorage.getItem('portfolio-theme') || 'light';
   
