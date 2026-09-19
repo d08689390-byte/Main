@@ -3,12 +3,12 @@ layout: default
 title: Denis Kuizinas | Cyber-Hacker Portfolio
 ---
 
-<!-- CDN Font Injections for Space Mono -->
+<!-- 🌐 CDN Font Injections for Space Mono -->
 <link rel="preconnect" href="https://googleapis.com">
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
 <link href="https://googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-<!-- FULL-SCREEN TERMINAL PRELOADER & SEAMLESS TRANSITION -->
+<!-- 🌌 FULL-SCREEN TERMINAL PRELOADER & SEAMLESS TRANSITION -->
 <div id="terminal-loader">
   <div class="loader-content">
     <!-- Typing Console Output -->
@@ -25,10 +25,10 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   </div>
 </div>
 
-<!-- Ambient CRT Screen Scanlines -->
+<!-- 📺 Ambient CRT Screen Scanlines -->
 <div class="scanlines"></div>
 
-<!-- Cyber Theme Controller Bar -->
+<!-- 🌓 Restructured Cyber Theme Controller Bar -->
 <div class="theme-bar">
   <button id="theme-toggle" class="cyber-toggle-btn" aria-label="Toggle system interface matrix">
     <span class="mode-indicator">[ SYS_MODE: <span id="mode-text">LIGHT</span> ]</span>
@@ -40,7 +40,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   <div class="profile-container glitch-hover">
     <img src="avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
     
-    <!-- Live Status Indicator Dot Badge -->
+    <!-- 🟢 Live Status Indicator Dot Badge -->
     <span class="status-badge" title="Live System Mode: Active and accepting project payloads">
       <span class="status-ping"></span>
       <span class="status-dot"></span>
@@ -69,7 +69,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
 
 <div class="project-grid">
   <!-- Project Card 1 -->
-  <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card">
+  <a href="https://wap.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Bus Timetable for WAP (dumb) phones</h3>
       <p>A lightweight Bus Timetable engine accessible anywhere globally, built for minimalist mobile viewports.</p>
@@ -149,6 +149,7 @@ Really like my coding works? Support my open-source tools today by deploying a d
 <br>
 
 <script>
+  // ⚡ The Orchestrator Script Sequence
   const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
   const typingTarget = document.getElementById("typing-text");
   const loader = document.getElementById("terminal-loader");
@@ -181,20 +182,27 @@ Really like my coding works? Support my open-source tools today by deploying a d
     setTimeout(runSequence, 300);
   });
 
+  // 🌓 Robust Theme Logic Engine
   const themeToggle = document.getElementById('theme-toggle');
   const modeText = document.getElementById('mode-text');
   
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-  document.documentElement.setAttribute('data-theme', savedTheme);
+  // Set default starting theme state
+  let currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', currentTheme);
   
-  modeText.textContent = savedTheme === 'dark' ? 'LIGHT' : 'DARK';
+  // Display target destination string option
+  modeText.textContent = currentTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    document.documentElement.setAttribute('data-theme', newTheme);
-    modeText.textContent = newTheme === 'dark' ? 'LIGHT' : 'DARK';
-    localStorage.setItem('portfolio-theme', newTheme);
+    // 🛠️ FIX: Explicitly toggle local and DOM attribute values concurrently
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('portfolio-theme', 'light');
+      modeText.textContent = 'DARK';
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('portfolio-theme', 'dark');
+      modeText.textContent = 'LIGHT';
+    }
   });
 </script>
