@@ -135,34 +135,7 @@ title: Denis Kuizinas | Portfolio
 </div>
 
 <script>
-  // ⚡ AUTOMATIC HEADER & FOOTER CLEANUP ENGINE
-  function purgeDefaultElements() {
-    // 1. Hunt down and remove the repository button ("Main")
-    const allLinks = document.querySelectorAll('a');
-    allLinks.forEach(link => {
-      if (link.textContent.trim() === 'Main' || link.href.includes('://github.com')) {
-        // Remove the button element or its parent container if it's trapped inside an automated header list
-        link.remove();
-      }
-    });
-
-    // 2. Hunt down and remove the footer text ("This site is open source.")
-    const allParagraphs = document.querySelectorAll('p, footer, div');
-    allParagraphs.forEach(el => {
-      if (el.textContent.includes('This site is open source')) {
-        el.remove();
-      }
-    });
-  }
-
-  // Execute immediately when the document layout structures load
-  window.addEventListener('DOMContentLoaded', () => {
-    purgeDefaultElements();
-    document.body.classList.add("loading-locked");
-    setTimeout(runSequence, 300);
-  });
-
-  // ⚡ The Orchestrator Script Sequence
+  // ⚡ 1. The Orchestrator Script Sequence
   const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
   const typingTarget = document.getElementById("typing-text");
   const loader = document.getElementById("terminal-loader");
@@ -188,7 +161,33 @@ title: Denis Kuizinas | Portfolio
     }
   }
 
-  // 🌓 Theme Script Engine
+  // ⚡ 2. AUTOMATIC HEADER & FOOTER CLEANUP ENGINE
+  function purgeDefaultElements() {
+    // Hunt down and remove the repository button ("Main")
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach(link => {
+      if (link.textContent.trim() === 'Main' || link.href.includes('://github.com')) {
+        link.remove();
+      }
+    });
+
+    // Hunt down and remove the footer text ("This site is open source.")
+    const allParagraphs = document.querySelectorAll('p, footer, div');
+    allParagraphs.forEach(el => {
+      if (el.textContent.includes('This site is open source')) {
+        el.remove();
+      }
+    });
+  }
+
+  // ⚡ 3. Safe Execution Trigger (Triggers everything in the perfect mathematical order)
+  window.addEventListener('DOMContentLoaded', () => {
+    purgeDefaultElements(); // Clear out the header/footer buttons instantly
+    document.body.classList.add("loading-locked"); // Hold screen
+    setTimeout(runSequence, 300); // Kick off typing sequence
+  });
+
+  // 🌓 4. Theme Script Engine
   const themeToggle = document.getElementById('theme-toggle');
   const modeText = document.getElementById('mode-text');
   
