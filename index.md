@@ -3,10 +3,10 @@ layout: default
 title: Denis Kuizinas | Portfolio
 ---
 
-<!-- 🛠️ CRUCIAL INJECTIONS: Adds your custom font and links your style.css file -->
-<link rel="preconnect" href="https://googleapis.com">
+<!-- 🛠️ FIXED GOOGLE FONT LINK MECHANICS -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
-<link href="https://googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
 <!-- FULL-SCREEN TERMINAL PRELOADER -->
