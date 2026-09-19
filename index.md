@@ -3,40 +3,46 @@ layout: default
 title: Denis Kuizinas | Cyber-Hacker Portfolio
 ---
 
-<!-- Cyber Scanner Overlay Effect -->
+<!-- 🌌 FULL-SCREEN PRELOADER & INTRO SYSTEM -->
+<div id="terminal-loader">
+  <div class="loader-content">
+    <!-- Typing Console Output -->
+    <div class="console-log-box">
+      <span id="typing-text"></span><span class="typing-cursor">_</span>
+    </div>
+    
+    <!-- The Jump & Shake Target Quote -->
+    <div id="jumper-quote" class="bio-text-wrapper">
+      <p class="bio-text">
+        "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- 📺 Ambient CRT Screen Scanlines -->
 <div class="scanlines"></div>
 
-<!-- Theme Switcher Button -->
-<div class="theme-toggle-container">
+<!-- 🌓 Restructured Theme Toggle Container -->
+<div class="theme-bar">
   <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
-    <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-    <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <span class="sun-icon">☀️ LIGHT</span>
+    <span class="moon-icon">🌙 DARK</span>
   </button>
 </div>
 
 
-<div style="text-align: center; margin-top: -1rem; position: relative; z-index: 2;">
-  
-  <!-- Avatar Section (With hacker terminal glitch hover effect) -->
-  <div class="profile-container hero-avatar-animate glitch-hover">
+<div style="text-align: center; margin-top: 1rem; position: relative; z-index: 2;">
+  <div class="profile-container glitch-hover">
     <img src="avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
   </div>
   
-  <!-- Typing Intro Wrapper -->
-  <div class="intro-typing-container">
-    <span id="typing-text"></span><span class="typing-cursor">_</span>
-  </div>
-  
-  <!-- The Jumping/Shaking White-Hat Quote Component -->
-  <div id="jumper-quote" class="bio-text-wrapper">
-    <p class="bio-text">
-      "I use my powers for good (white-hat). Mostly because I look terrible in horizontal stripes and prison coffee is sub-par."
-    </p>
-  </div>
+  <h1 class="glitch-title">Denis Kuizinas</h1>
+  <p class="hero-subtitle">Building epic, engaging web applications that connect people across any device.</p>
 </div>
 
 ## 🛠️ System Stack & Core Proficiencies
-<div class="tech-stack-container fade-in-section">
+<div class="tech-stack-container">
   <span class="tech-tag">JavaScript / TypeScript</span>
   <span class="tech-tag">Python</span>
   <span class="tech-tag">HTML5 / CSS / SCSS</span>
@@ -45,13 +51,11 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
 </div>
 
 ## 💻 Decrypted Repositories & Works
-<p class="fade-in-section sub-text">Select a secure terminal data node block below to view operational source code files.</p>
+<p class="sub-text">Select a secure terminal data node block below to view operational source code files.</p>
 
-<div class="project-grid fade-in-section">
-
-  <!-- Cyber Project Card 1 -->
-  <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card cyber-node">
-    <div class="card-glitch-overlay"></div>
+<div class="project-grid">
+  <!-- Project Card 1 -->
+  <a href="https://wap.cloud.stusite.me/bustimes" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Bus Timetable for WAP (dumb) phones</h3>
       <p>A lightweight Bus Timetable engine accessible anywhere globally, built for minimalist mobile viewports.</p>
@@ -62,9 +66,8 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
     </div>
   </a>
 
-  <!-- Cyber Project Card 2 -->
-  <a href="https://cloud.stusite.me/source" target="_blank" rel="noopener" class="project-card cyber-node">
-    <div class="card-glitch-overlay"></div>
+  <!-- Project Card 2 -->
+  <a href="https://cloud.stusite.me/source" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Source Code Repository Hub</h3>
       <p>Access the structural base directories and deployment source files for my live web platforms.</p>
@@ -77,14 +80,12 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
 </div>
 
 <br>
-<br>
 
 ## 📬 Open Secure Channel
 
 Have a development project option or an engineering infrastructure task you want to discuss? Securely message me directly using the transmission form below.
 
-<!-- Contact Form Block -->
-<div class="fade-in-section contact-form-wrapper">
+<div class="contact-form-wrapper">
   <form action="https://formspree.io/f/myezzbgn" method="POST" class="portfolio-form">
     <div class="form-group">
       <label for="name">User Identity</label>
@@ -100,10 +101,8 @@ Have a development project option or an engineering infrastructure task you want
     </div>
     <button type="submit" class="submit-btn">Transmit Payload</button>
   </form>
-  <p style="margin-top: 1.5rem; font-size: 0.9rem;">Alternatively, let's connect on [GitHub](https://github.com "GitHub Profile").</p>
 </div>
 
-<br>
 <br>
 
 ## ☕ Fuel Infrastructure / Support
@@ -117,59 +116,51 @@ Really like my coding works? Support my open-source tools today by deploying a d
 <br>
 <br>
 
-<!-- Core Scripts Section -->
 <script>
-  // Terminal Typing Intro Effect
-  const introString = "DenisKuizinas@portfolio:~# access_granted --identity=denis";
+  // ⚡ The Orchestrator Script Sequence
+  const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
   const typingTarget = document.getElementById("typing-text");
+  const loader = document.getElementById("terminal-loader");
+  const quoteContainer = document.getElementById("jumper-quote");
   let charIndex = 0;
 
-  function typeIntro() {
+  function runSequence() {
+    // Step 1: Type out the hack command
     if (charIndex < introString.length) {
       typingTarget.textContent += introString.charAt(charIndex);
       charIndex++;
-      setTimeout(typeIntro, 40); 
+      setTimeout(runSequence, 35); 
     } else {
-      // Trigger Quote Shake and Jump right after typing wraps up
+      // Step 2: Show and violently shake the quote
       setTimeout(() => {
-        const quoteEl = document.getElementById('jumper-quote');
-        quoteEl.classList.add('jump-shake-active');
+        quoteContainer.classList.add("visible-now");
+        quoteContainer.classList.add("jump-shake-active");
         
-        // Return back to standard formatting smoothly after animation loops complete
+        // Step 3: Fade out the preloader curtain to reveal the portfolio site
         setTimeout(() => {
-          quoteEl.classList.remove('jump-shake-active');
-        }, 1200);
+          loader.classList.add("fade-out-loader");
+          // Remove from layout after fade complete to restore standard viewport scrolling
+          setTimeout(() => { loader.style.display = "none"; }, 500);
+        }, 1600);
+        
       }, 500);
     }
   }
 
+  // Prevent scroll interaction until introduction cycle yields
   window.addEventListener('DOMContentLoaded', () => {
-    setTimeout(typeIntro, 400); 
+    document.body.classList.add("loading-locked");
+    setTimeout(runSequence, 300);
   });
 
-  // Intersection Scroll System
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in-section').forEach(section => {
-    observer.observe(section);
-  });
-
-  // Dark/Light Theme Switching Configurations (Cyber Dark vs Crisp Pure White)
+  // Dark/Light Theme Switching Mechanics
   const themeToggle = document.getElementById('theme-toggle');
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark'; // Defaulting to hacker dark mode
-  
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark'; // Hacker dark mode base
   document.documentElement.setAttribute('data-theme', savedTheme);
 
   themeToggle.addEventListener('click', () => {
     const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('portfolio-theme', newTheme);
   });
