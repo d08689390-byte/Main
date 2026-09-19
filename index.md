@@ -71,7 +71,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   </a>
 
   <!-- Project Card 2 -->
-  <a href="https://cloud.stusite.me/source" target="_blank" rel="noopener" class="project-card">
+  <a href="https://cloud.stusite.m/source" target="_blank" rel="noopener" class="project-card">
     <div class="card-content">
       <h3>Source Code Repository Hub</h3>
       <p>Access the structural base directories and deployment source files for my live web platforms.</p>
@@ -129,18 +129,15 @@ Really like my coding works? Support my open-source tools today by deploying a d
   let charIndex = 0;
 
   function runSequence() {
-    // Step 1: Type out the hack command line code
     if (charIndex < introString.length) {
       typingTarget.textContent += introString.charAt(charIndex);
       charIndex++;
       setTimeout(runSequence, 35); 
     } else {
-      // Step 2: Show and shake the quote inside loader canvas
       setTimeout(() => {
         quoteContainer.classList.add("visible-now");
         quoteContainer.classList.add("jump-shake-active");
         
-        // Step 3: Dissolve preloader screen and RESTORE SCROLL PHYSICS
         setTimeout(() => {
           loader.classList.add("fade-out-loader");
           document.body.classList.remove("loading-locked");
@@ -152,7 +149,6 @@ Really like my coding works? Support my open-source tools today by deploying a d
     }
   }
 
-  // Bind lock state on initial loading sequence initialization
   window.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add("loading-locked");
     setTimeout(runSequence, 300);
@@ -162,11 +158,9 @@ Really like my coding works? Support my open-source tools today by deploying a d
   const themeToggle = document.getElementById('theme-toggle');
   const modeText = document.getElementById('mode-text');
   
-  // Base state detection setup logic
+  // 🛠️ FIX: Properly tracks active storage structures and prints the toggle action button inverse text option option
   const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
-  
-  // The toggle button shows the OPPOSITE mode text options so users understand action targets
   modeText.textContent = savedTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
@@ -174,7 +168,6 @@ Really like my coding works? Support my open-source tools today by deploying a d
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
-    // Update button text to display the next available toggle state option option
     modeText.textContent = newTheme === 'dark' ? 'LIGHT' : 'DARK';
     localStorage.setItem('portfolio-theme', newTheme);
   });
