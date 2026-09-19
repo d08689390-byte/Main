@@ -135,6 +135,34 @@ title: Denis Kuizinas | Portfolio
 </div>
 
 <script>
+  // ⚡ AUTOMATIC HEADER & FOOTER CLEANUP ENGINE
+  function purgeDefaultElements() {
+    // 1. Hunt down and remove the repository button ("Main")
+    const allLinks = document.querySelectorAll('a');
+    allLinks.forEach(link => {
+      if (link.textContent.trim() === 'Main' || link.href.includes('://github.com')) {
+        // Remove the button element or its parent container if it's trapped inside an automated header list
+        link.remove();
+      }
+    });
+
+    // 2. Hunt down and remove the footer text ("This site is open source.")
+    const allParagraphs = document.querySelectorAll('p, footer, div');
+    allParagraphs.forEach(el => {
+      if (el.textContent.includes('This site is open source')) {
+        el.remove();
+      }
+    });
+  }
+
+  // Execute immediately when the document layout structures load
+  window.addEventListener('DOMContentLoaded', () => {
+    purgeDefaultElements();
+    document.body.classList.add("loading-locked");
+    setTimeout(runSequence, 300);
+  });
+
+  // ⚡ The Orchestrator Script Sequence
   const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
   const typingTarget = document.getElementById("typing-text");
   const loader = document.getElementById("terminal-loader");
@@ -160,19 +188,18 @@ title: Denis Kuizinas | Portfolio
     }
   }
 
-  window.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add("loading-locked");
-    setTimeout(runSequence, 300);
-  });
-
-  // 🌓 Streamlined Toggle Interaction Logic Engine
+  // 🌓 Theme Script Engine
   const themeToggle = document.getElementById('theme-toggle');
+  const modeText = document.getElementById('mode-text');
+  
   let currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
+  modeText.textContent = currentTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
     const updatedTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', updatedTheme);
     localStorage.setItem('portfolio-theme', updatedTheme);
+    modeText.textContent = updatedTheme === 'dark' ? 'LIGHT' : 'DARK';
   });
 </script>
