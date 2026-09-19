@@ -22,9 +22,25 @@ title: Denis Kuizinas | Portfolio
 <!-- 📦 THE MAIN PORTFOLIO BODY FRAME CONTAINER -->
 <div class="portfolio-container-wrapper">
 
+  <!-- 🌗 FIXED: Single Circular Theme Switcher with Shifting Icons -->
   <div class="theme-bar">
-    <button id="theme-toggle" class="cyber-toggle-btn" aria-label="Toggle system interface matrix">
-      [ SYS_MODE: <span id="mode-text">LIGHT</span> ]
+    <button id="theme-toggle" class="cyber-circle-btn" aria-label="Toggle system interface theme">
+      <!-- Sun Icon (Visible in Light Theme) -->
+      <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <!-- Moon Icon (Visible in Dark Theme) -->
+      <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
     </button>
   </div>
 
@@ -149,17 +165,14 @@ title: Denis Kuizinas | Portfolio
     setTimeout(runSequence, 300);
   });
 
+  // 🌓 Streamlined Toggle Interaction Logic Engine
   const themeToggle = document.getElementById('theme-toggle');
-  const modeText = document.getElementById('mode-text');
-  
   let currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', currentTheme);
-  modeText.textContent = currentTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
     const updatedTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', updatedTheme);
     localStorage.setItem('portfolio-theme', updatedTheme);
-    modeText.textContent = updatedTheme === 'dark' ? 'LIGHT' : 'DARK';
   });
 </script>
