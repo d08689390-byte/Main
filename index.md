@@ -158,9 +158,11 @@ Really like my coding works? Support my open-source tools today by deploying a d
   const themeToggle = document.getElementById('theme-toggle');
   const modeText = document.getElementById('mode-text');
   
-  // 🛠️ FIX: Properly tracks active storage structures and prints the toggle action button inverse text option option
+  // Detect active system matrix parameter sheets
   const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  // 🛠️ FIX: Corrects button presentation text so it tells the user what mode they can click INTO
   modeText.textContent = savedTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
@@ -168,6 +170,7 @@ Really like my coding works? Support my open-source tools today by deploying a d
     const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
     
     document.documentElement.setAttribute('data-theme', newTheme);
+    // Button lists alternative state target
     modeText.textContent = newTheme === 'dark' ? 'LIGHT' : 'DARK';
     localStorage.setItem('portfolio-theme', newTheme);
   });
