@@ -3,12 +3,12 @@ layout: default
 title: Denis Kuizinas | Cyber-Hacker Portfolio
 ---
 
-<!-- 🌐 CDN Font Injections for Space Mono -->
+<!-- CDN Font Injections for Space Mono -->
 <link rel="preconnect" href="https://googleapis.com">
 <link rel="preconnect" href="https://gstatic.com" crossorigin>
 <link href="https://googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 
-<!-- 🌌 FULL-SCREEN TERMINAL PRELOADER & SEAMLESS TRANSITION -->
+<!-- FULL-SCREEN TERMINAL PRELOADER & SEAMLESS TRANSITION -->
 <div id="terminal-loader">
   <div class="loader-content">
     <!-- Typing Console Output -->
@@ -25,10 +25,10 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   </div>
 </div>
 
-<!-- 📺 Ambient CRT Screen Scanlines -->
+<!-- Ambient CRT Screen Scanlines -->
 <div class="scanlines"></div>
 
-<!-- 🌓 Restructured Cyber Theme Controller Bar -->
+<!-- Cyber Theme Controller Bar -->
 <div class="theme-bar">
   <button id="theme-toggle" class="cyber-toggle-btn" aria-label="Toggle system interface matrix">
     <span class="mode-indicator">[ SYS_MODE: <span id="mode-text">LIGHT</span> ]</span>
@@ -40,7 +40,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   <div class="profile-container glitch-hover">
     <img src="avatar.jpg" alt="Denis Kuizinas" class="profile-avatar">
     
-    <!-- 🟢 Live Status Indicator Dot Badge -->
+    <!-- Live Status Indicator Dot Badge -->
     <span class="status-badge" title="Live System Mode: Active and accepting project payloads">
       <span class="status-ping"></span>
       <span class="status-dot"></span>
@@ -55,7 +55,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   <p class="hero-subtitle">Building epic, engaging web applications that connect people across any device.</p>
 </div>
 
-## 🛠️ System Stack & Core Proficiencies
+## System Stack & Core Proficiencies
 <div class="tech-stack-container">
   <span class="tech-tag">JavaScript / TypeScript</span>
   <span class="tech-tag">Python</span>
@@ -64,7 +64,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
   <span class="tech-tag">Node.js</span>
 </div>
 
-## 💻 Decrypted Repositories & Works
+## Decrypted Repositories & Works
 <p class="sub-text">Select a secure terminal data node block below to view operational source code files.</p>
 
 <div class="project-grid">
@@ -95,7 +95,7 @@ title: Denis Kuizinas | Cyber-Hacker Portfolio
 
 <br>
 
-## 📬 Open Secure Channel
+## Open Secure Channel
 
 Have a development project option or an engineering infrastructure task you want to discuss? Securely message me directly using the transmission form below.
 
@@ -113,13 +113,15 @@ Have a development project option or an engineering infrastructure task you want
       <label for="message">Payload Transmission (Message)</label>
       <textarea name="message" id="message" rows="5" placeholder="Write your message here..." required></textarea>
     </div>
-    <button type="submit" class="submit-btn">Transmit Payload</button>
+    <div style="text-transform: none !important;">
+      <button type="submit" class="submit-btn">Transmit Payload</button>
+    </div>
   </form>
 </div>
 
 <br>
 
-## ☕ Fuel Infrastructure / Support
+## Fuel Infrastructure / Support
 
 Really like my coding works? Support my open-source tools today by deploying a donation platform link:
 
@@ -147,7 +149,6 @@ Really like my coding works? Support my open-source tools today by deploying a d
 <br>
 
 <script>
-  // ⚡ The Orchestrator Script Sequence
   const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
   const typingTarget = document.getElementById("typing-text");
   const loader = document.getElementById("terminal-loader");
@@ -164,7 +165,6 @@ Really like my coding works? Support my open-source tools today by deploying a d
         quoteContainer.classList.add("visible-now");
         quoteContainer.classList.add("jump-shake-active");
         
-        // ⏱️ EXTENDED Delay: Hold preloader curtain open for extra readability
         setTimeout(() => {
           loader.classList.add("fade-out-loader");
           document.body.classList.remove("loading-locked"); 
@@ -181,15 +181,12 @@ Really like my coding works? Support my open-source tools today by deploying a d
     setTimeout(runSequence, 300);
   });
 
-  // 🛠️ RE-ENGINEERED: Robust theme initialization and inverse switcher toggle binding
   const themeToggle = document.getElementById('theme-toggle');
   const modeText = document.getElementById('mode-text');
   
-  // Force base settings checks
   const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', savedTheme);
   
-  // Explicitly state what mode the layout changes *to* upon target interaction
   modeText.textContent = savedTheme === 'dark' ? 'LIGHT' : 'DARK';
 
   themeToggle.addEventListener('click', () => {
