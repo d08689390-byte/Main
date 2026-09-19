@@ -62,11 +62,15 @@ body.loading-locked {
   font-family: "Roboto", "Helvetica", Arial, sans-serif !important;
 }
 
+h1, h2, h3, h4, h5, h6, p, label, input, textarea, span, a, button { 
+  font-family: "Roboto", "Helvetica", Arial, sans-serif !important;
+}
+
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main) !important; 
-  text-transform: uppercase;
   letter-spacing: 0.5px;
-  font-family: "Roboto", "Helvetica", Arial, sans-serif !important;
+  /* 🛠️ FIX: Removed automatic text-transform uppercase rule so case-sensitivity is respected */
+  text-transform: none !important; 
 }
 
 /* --- 🚪 PRE-BOOT TERMINAL PRELOADER (FORCES TERMINAL MONOSPACE) --- */
@@ -80,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   transition: opacity 0.5s ease-out;
-  /* 🖥️ Force strict Nerd-Font terminal environment styling inside loader viewports: */
+  /* 🖥️ Force strict terminal environment styling inside loader viewports: */
   font-family: 'Space Mono', 'Courier New', monospace !important;
 }
 
@@ -129,7 +133,7 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-cards) !important;
   border: 2px solid var(--border-color) !important;
   color: var(--text-main) !important;
-  font-family: 'Space Mono', monospace !important; // Toggle uses terminal formatting look
+  font-family: 'Space Mono', monospace !important; 
   font-weight: bold;
   padding: 0.6rem 1.2rem;
   border-radius: 4px;
