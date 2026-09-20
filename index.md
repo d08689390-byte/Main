@@ -105,65 +105,70 @@ title: "Denis Kuizinas | Portfolio"
 
 </div>
 
-<script>
-  const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
-  let charIndex = 0;
+<script
+// Cache DOM once
+const typingTarget = document.getElementById("typing-text");
+const loader = document.getElementById("terminal-loader");
+const quoteContainer = document.getElementById("jumper-quote");
+const themeToggle = document.getElementById("theme-toggle");
 
-  function runSequence() {
-    const typingTarget = document.getElementById("typing-text");
-    const loader = document.getElementById("terminal-loader");
-    const quoteContainer = document.getElementById("jumper-quote");
+const introString = "DenisKuizinas@portfolio:~# boot_sequence --init --white-hat";
+let charIndex = 0;
 
-    if (!typingTarget) return;
+// Smooth typing animation using requestAnimationFrame
+function typeSequence() {
+  if (!typingTarget) return;
 
-    if (charIndex < introString.length) {
-      typingTarget.textContent += introString.charAt(charIndex);
-      charIndex++;
-      setTimeout(runSequence, 35);
-    } else {
-      setTimeout(() => {
-        if (quoteContainer) {
-          quoteContainer.classList.add("visible-now", "jump-shake-active");
-        }
-        setTimeout(() => {
-          if (loader) loader.classList.add("fade-out-loader");
-          document.body.classList.remove("loading-locked");
-          setTimeout(() => { if (loader) loader.style.display = "none"; }, 500);
-        }, 2100);
-      }, 500);
-    }
+  if (charIndex < introString.length) {
+    typingTarget.textContent += introString[charIndex++];
+    setTimeout(() => requestAnimationFrame(typeSequence), 35);
+  } else {
+    revealQuote();
   }
+}
 
-  function purgeDefaultElements() {
-    const allLinks = document.querySelectorAll('a');
-    allLinks.forEach(link => {
-      if (link.textContent.trim() === 'Main' || link.href.includes('://github.com')) {
-        link.remove();
-      }
-    });
+function revealQuote() {
+  quoteContainer?.classList.add("visible-now", "jump-shake-active");
 
-    const allParagraphs = document.querySelectorAll('p, footer, div, span');
-    allParagraphs.forEach(el => {
-      if (el.textContent.includes('This site is open source') || el.textContent.includes('Improve this page')) {
-        el.remove();
-      }
-    });
-  }
+  setTimeout(() => {
+    loader?.classList.add("fade-out-loader");
+    document.body.classList.remove("loading-locked");
 
-  window.addEventListener('DOMContentLoaded', () => {
-    purgeDefaultElements();
-    const themeToggle = document.getElementById('theme-toggle');
-    let currentTheme = localStorage.getItem('portfolio-theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', currentTheme);
+    setTimeout(() => {
+      if (loader) loader.style.display = "none";
+    }, 500);
+  }, 2100);
+}
 
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        const updatedTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', updatedTheme);
-        localStorage.setItem('portfolio-theme', updatedTheme);
-      });
-    }
-
-    runSequence();
+// Safer purge (only removes Jekyll default UI)
+function purgeDefaultElements() {
+  document.querySelectorAll('a').forEach(link => {
+    const txt = link.textContent.trim();
+    if (txt === "Main" || txt === "Improve this page") link.remove();
   });
-</script>
+
+  document.querySelectorAll('footer').forEach(f => f.remove());
+}
+
+// Theme toggle (cleaned)
+function initTheme() {
+  const saved = localStorage.getItem("portfolio-theme") || "dark";
+  document.documentElement.dataset.theme = saved;
+
+  themeToggle?.addEventListener("click", () => {
+    const newTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = newTheme;
+    localStorage.setItem("portfolio-theme", newTheme);
+  });
+}
+
+// Init everything
+window.addEventListener("DOMContentLoaded", () => {
+  purgeDefaultElements();
+  initTheme();
+  requestAnimationFrame(typeSequence);
+});
+</script
+
+<script>
+  
