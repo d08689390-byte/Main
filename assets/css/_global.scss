@@ -1,0 +1,23 @@
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--bg-page);
+  color: var(--text-main);
+  transition: background-color 0.4s, color 0.4s;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: var(--grid-size) var(--grid-size);
+    pointer-events: none;
+  }
+}
