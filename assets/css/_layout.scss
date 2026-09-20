@@ -1,0 +1,24 @@
+.portfolio-container-wrapper {
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.theme-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(rgba(18,16,16,0) 50%, rgba(0,0,0,0.15) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: var(--scan-opacity);
+  z-index: 9999;
+}
