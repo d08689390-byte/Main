@@ -105,7 +105,7 @@ title: "Denis Kuizinas | Portfolio"
 
 </div>
 
-<script
+<script>
 // Cache DOM once
 const typingTarget = document.getElementById("typing-text");
 const loader = document.getElementById("terminal-loader");
@@ -140,14 +140,10 @@ function revealQuote() {
   }, 2100);
 }
 
-// Safer purge (only removes Jekyll default UI)
 function purgeDefaultElements() {
-  document.querySelectorAll('a').forEach(link => {
-    const txt = link.textContent.trim();
-    if (txt === "Main" || txt === "Improve this page") link.remove();
-  });
+  document.querySelectorAll('footer, .site-footer, .page-header').forEach(el => el.remove());
+}
 
-  document.querySelectorAll('footer').forEach(f => f.remove());
 }
 
 // Theme toggle (cleaned)
@@ -168,7 +164,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initTheme();
   requestAnimationFrame(typeSequence);
 });
-</script
+</script>
 
 <script>
   
