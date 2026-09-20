@@ -3,10 +3,7 @@ layout: default
 title: "Denis Kuizinas | Portfolio"
 ---
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
 
 <!-- Compiled SCSS -->
 <link rel="stylesheet" href="/Main/assets/css/style.css">
