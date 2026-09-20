@@ -1,0 +1,15 @@
+@mixin smooth {
+  transition: all 0.3s ease;
+}
+
+@mixin card {
+  background: var(--bg-cards);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  @include smooth;
+}
+
+@mixin neon-border($color) {
+  border-color: $color;
+  box-shadow: 0 0 15px rgba($color, 0.4);
+}
