@@ -40,7 +40,7 @@
 
   &.html-tag { color: #ea580c; background: rgba(234,88,12,0.1); }
   &.css-tag { color: var(--blue-tech-text); background: var(--blue-tech-bg); }
-  &.react-tag { color: #0891b2; background: rgba(8,145,178,0.1); }
+  &.react-tag { color: var(--react-tech-text); background: var(--react-tech-bg); }
   &.node-tag { color: #16a34a; background: rgba(22,163,74,0.1); }
 }
 

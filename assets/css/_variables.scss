@@ -19,6 +19,8 @@ html[data-theme="light"] {
   --online-green: #22c55e;
   --blue-tech-text: #1e3a8a;
   --blue-tech-bg: rgba(30, 58, 138, 0.1);
+  --react-tech-text: #1e3a8a;
+  --react-tech-bg: rgba(30, 58, 138, 0.1);
 }
 
 html[data-theme="dark"] {
@@ -41,4 +43,6 @@ html[data-theme="dark"] {
   --online-green: #22c55e;
   --blue-tech-text: #38bdf8;
   --blue-tech-bg: rgba(56, 189, 248, 0.12);
+  --react-tech-text: #38bdf8;
+  --react-tech-bg: rgba(56, 189, 248, 0.12);
 }
