@@ -1,0 +1,148 @@
+name: Strict PR Template Validation
+
+on:
+  pull_request:
+    types: [opened, edited, reopened]
+
+jobs:
+  validate-template:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate PR body
+        id: validate
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || "";
+
+            // Required headings
+            const requiredHeadings = [
+              "Pull Request Summary",
+              "TL;DR",
+              "What Changed?",
+              "Why This Change?",
+              "How to Test",
+              "Screenshots / Demo",
+              "Breaking Changes",
+              "Type of Change",
+              "Additional Notes"
+            ];
+
+            // Minimum content rules
+            const minLengthRules = {
+              "Pull Request Summary": 30,
+              "TL;DR": 10,
+              "What Changed?": 20,
+              "Why This Change?": 20,
+              "How to Test": 20
+            };
+
+            // Helper: extract section content
+            function extractSection(title) {
+              const regex = new RegExp(`##?\\s*${title}[\\s\\S]*?(?=##|$)`, "i");
+              const match = body.match(regex);
+              return match ? match[0].trim() : "";
+            }
+
+            let errors = [];
+
+            // 1. Check headings exist
+            for (const heading of requiredHeadings) {
+              if (!body.includes(heading)) {
+                errors.push(`Missing heading: **${heading}**`);
+              }
+            }
+
+            // 2. Check minimum content length
+            for (const [section, minLen] of Object.entries(minLengthRules)) {
+              const content = extractSection(section);
+              if (content.length < minLen) {
+                errors.push(`Section **${section}** must be at least ${minLen} characters.`);
+              }
+            }
+
+            // 3. Check Type of Change has at least one checkbox ticked
+            const typeOfChangeSection = extractSection("Type of Change");
+            if (!/
+
+\[x\]
+
+|
+
+\[X\]
+
+/.test(typeOfChangeSection)) {
+              errors.push("At least one **Type of Change** checkbox must be selected.");
+            }
+
+            // 4. If UI label exists → screenshots required
+            const labels = context.payload.pull_request.labels.map(l => l.name.toLowerCase());
+            if (labels.includes("ui")) {
+              const screenshots = extractSection("Screenshots / Demo");
+              if (screenshots.length < 10) {
+                errors.push("UI PRs must include screenshots or demo media.");
+              }
+            }
+
+            // 5. If feature → linked issue required
+            if (/feature/i.test(typeOfChangeSection)) {
+              if (!body.includes("Related Issue: #")) {
+                errors.push("Feature PRs must include a linked issue (e.g., `Related Issue: #123`).");
+              }
+            }
+
+            // Fail if errors exist
+            if (errors.length > 0) {
+              core.setFailed(errors.join("\n"));
+            } else {
+              core.notice("All strict PR validation rules passed.");
+            }
+
+      - name: Comment on PR if invalid
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+            const errors = core._internal.errors || ["Unknown validation error"];
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: `
+❌ **Your pull request does not meet the strict PR template requirements.**
+
+Please fix the following:
+
+${errors.map(e => `- ${e}`).join("\n")}      - name: Close PR if invalid
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const prNumber = context.payload.pull_request.number;
+
+            await github.rest.pulls.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              state: "closed"
+            });
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: prNumber,
+              body: `
+❌ **This pull request has been automatically closed.**
+
+Your PR did not meet the required template rules.  
+Please fix the issues and then the pull request will be reopened.
+
+This ensures all contributions follow the project's standards.`
+            });
+
+
+Once corrected, the validation will pass automatically.`
+            });
