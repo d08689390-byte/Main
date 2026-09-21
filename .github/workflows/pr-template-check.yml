@@ -1,4 +1,5 @@
-name: Strict PR Template Validation
+name: DenisTemplateGuard
+
 
 on:
   pull_request:
