@@ -1,4 +1,5 @@
-name: Auto Reopen Fixed PR
+name: DenisTemplateGuard
+
 
 on:
   pull_request:
