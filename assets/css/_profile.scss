@@ -20,13 +20,21 @@
     position: absolute;
     bottom: 8px;
     right: 8px;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
     .status-dot {
-      width: 12px;
-      height: 12px;
+      width: 16px;
+      height: 16px;
       background-color: var(--online-green);
       border-radius: 50%;
-      border: 2px solid var(--bg-page);
+      border: 3px solid var(--bg-page);
+      position: relative;
+      z-index: 1;
+      display: block;
     }
 
     .status-ping {

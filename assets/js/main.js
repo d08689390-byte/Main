@@ -37,7 +37,7 @@ function purgeDefaultElements() {
 }
 
 function initTheme() {
-  const saved = localStorage.getItem("portfolio-theme") || "dark";
+  const saved = localStorage.getItem("portfolio-theme") || "light";
   document.documentElement.dataset.theme = saved;
 
   themeToggle?.addEventListener("click", () => {
