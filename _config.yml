@@ -1,0 +1,7 @@
+title: "Denis Kuizinas | Portfolio"
+description: "My coding works and links to my projects"
+url: "https://d08689390-byte.github.io"
+baseurl: "/main"
+
+sass:
+  sass_dir: assets/css
