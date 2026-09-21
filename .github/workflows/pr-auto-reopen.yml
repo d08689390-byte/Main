@@ -1,0 +1,64 @@
+name: Auto Reopen Fixed PR
+
+on:
+  pull_request:
+    types: [edited, synchronize]
+
+jobs:
+  reopen-if-fixed:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate PR body again
+        id: validate
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const body = context.payload.pull_request.body || "";
+
+            const requiredSections = [
+              "Pull Request Summary",
+              "TL;DR",
+              "What Changed?",
+              "Why This Change?",
+              "How to Test",
+              "Screenshots / Demo",
+              "Breaking Changes",
+              "Type of Change",
+              "Additional Notes"
+            ];
+
+            const missing = requiredSections.filter(section => !body.includes(section));
+
+            if (missing.length > 0) {
+              core.setFailed("Still missing required sections.");
+            } else {
+              core.notice("Template now valid.");
+            }
+
+      - name: Reopen PR if valid
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request;
+
+            if (pr.state === "closed") {
+              await github.rest.pulls.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pr.number,
+                state: "open"
+              });
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: pr.number,
+                body: `
+🔄 **Your pull request has been automatically reopened.**
+
+The PR template is now valid.  
+Thanks for updating your submission!`
+              });
+            }
