@@ -17,10 +17,9 @@ html[data-theme="light"] {
   --turquoise: #00e6c7;
   --terminal-green: #39ff14;
   --online-green: #22c55e;
-  --blue-tech-text: #1e3a8a;
-  --blue-tech-bg: rgba(30, 58, 138, 0.1);
-  --react-tech-text: #1e3a8a;
-  --react-tech-bg: rgba(30, 58, 138, 0.1);
+  --blue-tech-text: #1d4ed8;
+  --blue-tech-bg: rgba(29, 78, 216, 0.1);
+  --highlight-text: #1e3a8a;
 }
 
 html[data-theme="dark"] {
@@ -43,6 +42,5 @@ html[data-theme="dark"] {
   --online-green: #22c55e;
   --blue-tech-text: #38bdf8;
   --blue-tech-bg: rgba(56, 189, 248, 0.12);
-  --react-tech-text: #38bdf8;
-  --react-tech-bg: rgba(56, 189, 248, 0.12);
+  --highlight-text: #38bdf8;
 }
