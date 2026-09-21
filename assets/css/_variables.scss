@@ -17,6 +17,8 @@ html[data-theme="light"] {
   --turquoise: #00e6c7;
   --terminal-green: #39ff14;
   --online-green: #22c55e;
+  --blue-tech-text: #1d4ed8;
+  --blue-tech-bg: rgba(29, 78, 216, 0.1);
 }
 
 html[data-theme="dark"] {
@@ -37,4 +39,6 @@ html[data-theme="dark"] {
   --turquoise: #00ffd5;
   --terminal-green: #39ff14;
   --online-green: #22c55e;
+  --blue-tech-text: #38bdf8;
+  --blue-tech-bg: rgba(56, 189, 248, 0.12);
 }
