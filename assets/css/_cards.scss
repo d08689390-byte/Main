@@ -44,6 +44,18 @@
   &.node-tag { color: #16a34a; background: rgba(22,163,74,0.1); }
 }
 
+html[data-theme="light"] .tech-tag.css-tag,
+html[data-theme="light"] .tech-tag.react-tag {
+  color: #1e3a8a;
+  background: rgba(30, 58, 138, 0.1);
+}
+
+html[data-theme="dark"] .tech-tag.css-tag,
+html[data-theme="dark"] .tech-tag.react-tag {
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+}
+
 .sponsor-button-grid {
   display: flex;
   flex-wrap: wrap;
