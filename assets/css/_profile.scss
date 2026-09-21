@@ -26,6 +26,10 @@
     align-items: center;
     justify-content: center;
 
+    &.is-offline {
+      display: none;
+    }
+
     .status-dot {
       width: 16px;
       height: 16px;
